@@ -1254,7 +1254,7 @@ header .navbar-brand {
 .site-footer-menus ul li{
 	display: inline-block;
 	color: white;
-	list-style: none;
+	
 }
 
 .site-footer-menus ul li a:link{
@@ -1263,7 +1263,7 @@ header .navbar-brand {
 
 .site-footer-menus ul li a:hover{
 	
-	float: left;
+	
 	color: white;
 }
 
@@ -1280,7 +1280,7 @@ header .navbar-brand {
 	
 }
 
-/*.site-footer nav ul li a:link,
+.site-footer nav ul li a:link,
 .site-footer nav ul li a:visited{
 	
 	padding: 0 20px;
@@ -1305,7 +1305,7 @@ header .navbar-brand {
 .site-footer{
 	
 }
-*/
+
 
 
 .site-info{
