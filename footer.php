@@ -13,21 +13,22 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
+	<footer class="site-footer">
+		
 
 			<div class="site-footer-logo">
-				<img id="foot-logo" src="<?php echo get_theme_mod('alps_logo'); ?>" alt="ALPs"> 
+				<?php $alps_logo =  get_theme_mod( 'alps_logo' ); ?>
+				<a href="<?php esc_url( home_url ( '/' ) ) ?>" title="<?php bloginfo( 'title' ); ?>">
+					<img class="desktop-logo" src="<?php echo $alps_logo;?>" alt="<?php bloginfo( 'title' ); ?>"/>	
+				</a>
+				
 			</div>
 
-			<div class="site-footer-contact">
-				<p id="footer-title"><?php echo bloginfo( 'title' )?></p>
-            	<p id="footer-contact"><?php echo get_theme_mod('alps_contact_number'); ?> <?php echo get_theme_mod('alps_email_address') ?></p>
+			<div class="container-site-footer-contact">
+				<p class="footer-title"><?php echo bloginfo( 'title' )?></p>
+            	<p class="footer-contact"><?php echo get_theme_mod('alps_contact_number'); ?> <?php echo get_theme_mod('alps_email_address') ?></p>
             	
-            </div>
-
-
-            	
+            </div>          	
         
             <div class="container-social-media">
             
@@ -51,7 +52,35 @@
             </div>
 
             <div class="site-footer-menus" id="site-footer-font">
-            	<nav id="site-navigation" >
+            	<nav>
+    				<ul>
+    					<?php
+    						wp_nav_menu(
+    	    						array(
+   	        						 'theme_location'    => 'footer',
+   	        						 'menu_id'           => 'footer-menu small-text'
+   	     							)
+  	  						);
+   						 ?>
+   				
+  					</ul>
+				</nav>
+				
+			
+			</div>
+
+
+		
+
+			
+	</footer><!-- #colophon -->
+	<footer class="third">
+		<div class="cont-alt-title">
+			<p class="alt-title"><?php echo bloginfo( 'title' )?></p>
+		</div>
+		<section class="one-half">
+			<article class="art-menu">
+				<nav>
     				
     					<?php
     						wp_nav_menu(
@@ -62,22 +91,53 @@
   	  						);
    						 ?>
    				
-  					
 				</nav>
-				<div class="footer-copyryt">
-					<p>Copyright 2017</p>
+			</article>
+			<aside class="asd-contact-info">
+				<div class="phone-contact">
+					<p class="alt-phone-contact"><?php echo get_theme_mod('alps_contact_number'); ?></p>
+					<p class="alt-email-contact"><?php echo get_theme_mod('alps_email_address') ?></p>
 				</div>
-			
-			</div>
+			<section class"sec-extra">
+				<article class="art-extra">
+					<p id="extra-follow">Follow us</p>   	
+				</article>
+				<aside class="asd-extra">
+					
+				</aside>
+			</section>
+				<div class="social-contacts">		
+						
+            		<ul class="social-icons">     
+            			      				
+            			<?php
+           					 $social_media_icons = get_theme_mod('alps_social_media_icons');
+           					 
+           					 if (!empty($social_media_icons)) :	  
+            				    $social_media_icons_decoded = json_decode($social_media_icons);
+                				foreach ($social_media_icons_decoded as $social_media_icon) : ?>
 
+                    				<a href="<?php echo esc_url($social_media_icon->link); ?>">
+                        				<span class="fa <?php echo esc_attr($social_media_icon->icon_value); ?>"></span>
+                    				</a>
 
-		</div><!-- .site-info -->
+                		<?php endforeach;
+           				 endif; ?>
+            		</ul>
+				</div>
+			</aside>
+		</section>
 
-			
-	</footer><!-- #colophon -->
+	</footer>
+	<footer class="second">
+			<p class="frs">Copyright 2017</p>
+			<p class="sec">Copyright 2017-<?php echo bloginfo( 'title' )?></p>
+	</footer>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
 </body>
 </html>
+
+
