@@ -111,6 +111,8 @@ function alps_scripts() {
 
 	wp_enqueue_script( 'jquery' );
 
+    wp_enqueue_script( 'alps-page-loader', 'https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js' );
+
 	wp_enqueue_style( 'alps-bootstrap-style', get_template_directory_uri() . '/css/bootstrap.min.css');
 
 	wp_enqueue_style( 'alps-stamp-icons', get_template_directory_uri() . '/inc/icon-picker/css/stamp-icons.min.css');
@@ -121,6 +123,9 @@ function alps_scripts() {
 
 	wp_enqueue_script( 'alps-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
+    wp_enqueue_script( 'alps-collapsing', get_template_directory_uri(). '/js/collapsing.js');
+
+    wp_enqueue_script('alps_gsheets_direct', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js');
 }
 add_action( 'wp_enqueue_scripts', 'alps_scripts' );
 
